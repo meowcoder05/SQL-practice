@@ -171,5 +171,68 @@ inner join cte_customers
 on cte_orders.customernumber = cte_customers.customerNumber
 where status = 'Cancelled';
 
+SELECT * FROM customers
+Where contactLastName <> 'Young';
+
+SELECT customerName, contactLastName, contactFirstName, phone, city, country 
+From customers
+Where contactFirstName = 'Julie' and country = 'USA';
+
+SELECT customerName, contactLastName, contactFirstName, phone, city, country, creditLimit
+From customers
+Where country = 'Norway'
+or country = 'Sweden';
+
+select * from customers
+Where (country = 'USA' 
+or country = 'UK')
+and contactLastName = 'Brown';
+
+select salesrepemployeenumber, contactFirstName, country from customers
+Where salesrepemployeenumber <> 'Null';
+
+select * from employees;
+
+Select email from employees
+where jobTitle = 'Sales Rep';
+
+select *, upper(firstname), upper(lastname) as uppername
+from employees;
+
+select * from employees
+where lower(email) in 
+('jfirrelli@classicmodelcars.com',
+'ykato@classicmodelcars.com',
+'abow@classicmodelcars.com')
+and upper(jobTitle) in
+('SALES REP');
+
+select distinct country
+from customers;
+
+select *
+from customers
+where upper(city) LIKE '%NEW%';
+
+
+select * from customers 
+where phone LIKE '%55%';
+
+select * from offices
+order by officeCode asc;
+
+select * from orders t1
+inner join customers t2;
+
+select distinct customerNumber
+from orders
+
+
+select lastname, firstname, jobtitle, customername 
+from employees T1
+left join customers T2
+on t1.employeenumber = t2.salesrepemployeenumber
+where customername is null
+and upper(jobtitle) = 'SALES REP'
 
 
